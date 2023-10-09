@@ -7,8 +7,8 @@
   <meta name="robots" content="noindex,nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Bona+Nova&family=Shippori+Mincho&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.min.css">
   </head>
   <body>
     <header class="header">
@@ -21,19 +21,21 @@
     </header>
     <main class="main">
       <section class="intro">
-        <h2>クリエイティブへの姿勢</h2>
-        <p class="intro__lead">25歳からものづくりに携わりはじめました。当時は今と業種は異なりますが、一貫しているのは作ることへのこだわりの強さです。良いものを作るために決して妥協しない、こだわりを持って業務をやり切ります。</p>
-        <p class="intro__sub">コーダーの私の使命は、デザインの魅力をWeb上で最大限表現することと考えます。そのために、自身の表現の幅を広げようと日々学んでいます。</p>
-        <ol>
-          <li><a href="">SKILLS</a></li>
-          <li><a href="">WORKS</a></li>
-          <li><a href="">PROFILE</a></li>
+        <h2 class="intro__heading">クリエイティブへの姿勢</h2>
+        <div class="intro__text">
+          <p class="intro__lead">25歳からものづくりに携わりはじめました。当時は今と業種は異なりますが、一貫しているのは<em class="intro__emphasis">作ることへのこだわりの強さ</em>です。良いものを作るために決して妥協しない、こだわりを持って業務をやり切ります。</p>
+          <p class="intro__sub">コーダーの私の使命は、デザインの魅力をWeb上で最大限表現することと考えます。そのために、自身の表現の幅を広げようと日々学んでいます。</p>
+        </div>
+        <ol class="breadcrumb">
+          <li class="breadcrumb__item"><a href="#skills" class="breadcrumb__link">SKILLS</a></li>
+          <li class="breadcrumb__item"><a href="#works" class="breadcrumb__link">WORKS</a></li>
+          <li class="breadcrumb__item"><a href="#profile" class="breadcrumb__link">PROFILE</a></li>
         </ol>
       </section>
-      <section class="skills">
+      <section class="section skills" id="skills">
         <div class="skills__inner">
           <div class="skills__left">
-            <h2 class="heading">
+            <h2 class="heading skills__heading">
               <em class="heading__main">SKILLS</em>
               <span class="heading__sub">スキル</span>
             </h2>
@@ -71,7 +73,7 @@
         </div>
         <!-- skills__inner -->
       </section>
-      <section class="works">
+      <section class="section works" id="works">
         <div class="works__inner">
           <h2 class="heading">
             <em class="heading__main">WORKS</em>
@@ -86,17 +88,17 @@
                 <a href="https://e-hykw.com/daydream/" target="_blank" class="card">
                   <p class="card__title">趣味のイラストを公開しているサイト</p>
                   <p class="card__text">HTML／CSS／JavaScript／GSAP／Swiper</p>
-                  <img src="./img/img-website_daydream.jpg" alt="趣味のイラストサイトサムネイル" class="card__image">
+                  <img src="./img/img-website_daydream.jpg" alt="趣味のイラストサイトサムネイル" class="card__image" decoding="async" width="566" height="318">
                 </a>
                 <a href="https://e-hykw.com/blog/" target="_blank" class="card">
                   <p class="card__title">個人ブログ</p>
                   <p class="card__text">HTML／CSS／JavaScript／WordPress</p>
-                  <img src="./img/img-website_blog.jpg" alt="個人ブログサムネイル" class="card__image">
+                  <img src="./img/img-website_blog.jpg" alt="個人ブログサムネイル" class="card__image" decoding="async" width="566" height="318">
                 </a>
                 <a href="https://e-hykw.com/lab01/index.html" target="_blank" class="card">
                   <p class="card__title">趣味で作ったパララックスサイト</p>
                   <p class="card__text">HTML／CSS／JavaScript</p>
-                  <img src="./img/img-website_parallax.jpg" alt="趣味で作ったサイトサムネイル" class="card__image">
+                  <img src="./img/img-website_parallax.jpg" alt="趣味で作ったサイトサムネイル" class="card__image" decoding="async" width="566" height="318">
                 </a>
               </div>
               <!-- cards -->
@@ -107,42 +109,42 @@
                 <a href="https://codepen.io/hayamine01/pen/MWPzRPa" target="_blank" class="card">
                   <p class="card__title">ウェーブするパネル</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_panel.jpg" alt="ウェーブするパネルのサムネイル" class="card__image">
+                  <img src="./img/img-codepen_panel.jpg" alt="ウェーブするパネルのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/xxmwPZv" target="_blank" class="card">
                   <p class="card__title">追加・削除できるボックス</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_boxes.jpg" alt="キラキラ光るボックスのサムネイル" class="card__image">
+                  <img src="./img/img-codepen_boxes.jpg" alt="キラキラ光るボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/vYVQVZM" target="_blank" class="card">
                   <p class="card__title">動くボックス</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_square.jpg" alt="水平移動するボックスのサムネイル" class="card__image">
+                  <img src="./img/img-codepen_square.jpg" alt="水平移動するボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/JjwPEbO" target="_blank" class="card">
                   <p class="card__title">回転する球</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_rotate_ball.jpg" alt="回転する球のサムネイル" class="card__image">
+                  <img src="./img/img-codepen_rotate_ball.jpg" alt="回転する球のサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/KKrXMXV" target="_blank" class="card">
                   <p class="card__title">うねうねする円</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_uneune.jpg" alt="うねうね動く円のサムネイル" class="card__image">
+                  <img src="./img/img-codepen_uneune.jpg" alt="うねうね動く円のサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/LYWPMmL" target="_blank" class="card">
                   <p class="card__title">パーティクル</p>
                   <p class="card__text">Canvas／JavaScript</p>
-                  <img src="./img/img-codepen_particle.jpg" alt="パーティクルサムネイル" class="card__image">
+                  <img src="./img/img-codepen_particle.jpg" alt="パーティクルサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/jOqJGYB" target="_blank" class="card">
                   <p class="card__title">四方に当たると色の変わる球</p>
                   <p class="card__text">Canvas／JavaScript</p>
-                  <img src="./img/img-codepen_balls.jpg" alt="四方に当たると色の変わる球サムネイル" class="card__image">
+                  <img src="./img/img-codepen_balls.jpg" alt="四方に当たると色の変わる球サムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/ZEzXMjy" target="_blank" class="card">
                   <p class="card__title">CSSアニメーション</p>
                   <p class="card__text">HTML、CSS</p>
-                  <img src="./img/img-codepen_css.jpg" alt="CSSアニメーションのサムネイル" class="card__image">
+                  <img src="./img/img-codepen_css.jpg" alt="CSSアニメーションのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
               </div>
               <!-- cards -->
@@ -152,17 +154,37 @@
         </div>
         <!-- works__inner -->
       </section>
-      <section class="profile">
+      <section class="section profile" id="profile">
+        <h2 class="heading">
+          <em class="heading__main">PROFILE</em>
+          <span class="heading__sub">自己紹介</span>
+        </h2>
         <div class="profile__inner">
-          <h2 class="heading">
-            <em class="heading__main">PROFILE</em>
-            <span class="heading__sub">自己紹介</span>
-          </h2>
-          <ul class="list">
-            <li class="list__item">1989年生まれ</li>
-            <li class="list__item">香川県出身、埼玉県在住</li>
-            <li class="list__item">趣味:ゲーム</li>
-          </ul>
+          <figure class="profile__image"><img src="https://placehold.jp/640x640.png" alt="EMI HAYAKAWAイラスト" width="552" height="552" decoding="async"></figure>
+          <div class="profile__content">
+            <ul class="list">
+              <li class="list__item">1989年生まれ（33歳）</li>
+              <li class="list__item">香川県出身、埼玉県在住</li>
+              <li class="list__item">趣味
+                <ul class="list-child">
+                  <li class="list-child__item">読書（主にミステリーが好きで、どんでん返しの心地よさを感じたくて）</li>
+                  <li class="list-child__item">早朝ウォーキング</li>
+                  <li class="list-child__item">イラスト制作</li>
+                  <li class="list-child__item">ゲーム（夫婦でゲーム好きで、PlayStation2〜5まで持っています）</li>
+                </ul>
+              </li>
+              <li class="list__item">苦手なもの・こと
+                <ul class="list-child">
+                  <li class="list-child__item">パクチー</li>
+                  <li class="list-child__item">寝不足</li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="sns">
+              <li class="sns__icon"><a href="https://github.com/hayamin1111" target="_blank" class="sns__link"><img src="./img/icon-github.png" alt="Githubはこちら" width="100" height="41" decoding="async"></a></li>
+              <li class="sns__icon"><a href="https://codepen.io/hayamine01" target="_blank" class="sns__link"><img src="./img/icon-codepen.webp" alt="Codepenはこちら" width="100" height="27" decoding="async"></a></li>
+            </ul>
+          </div>
         </div>
         <!-- profile__inner -->
       </section>
@@ -170,6 +192,6 @@
     <footer class="footer">
       <p class="copyright"><small>&copy;Hayakawa</small></p>
     </footer>
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/main.min.js"></script>
   </body>
 </html>
