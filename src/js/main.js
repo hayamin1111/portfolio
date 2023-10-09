@@ -29,7 +29,7 @@ ScrollTrigger.batch(".heading", {
     duration: .4,
   }),
   start: "top 70%",
-  once: true //この指定によって１度だけアニメーションされる
+  once: true
 });
 gsap.set('.skills__subsection', {
   opacity: 0,
@@ -81,3 +81,28 @@ gsap.to('.profile__content', {
     start: "top 80%",
   },
 })
+
+
+//smooth scroll
+const anchorElems = document.querySelectorAll('a[href^="#"]');
+anchorElems.forEach(anchorElem => {
+   anchorElem.addEventListener('click', (event) => { 
+    event.preventDefault();
+    let href = anchorElem.getAttribute('href');
+    let targetElem = document.getElementById(href.replace('#',''));
+    if(targetElem) {
+      const targetOffsetTop = targetElem.getBoundingClientRect().top;
+      const offset = window.pageYOffset;
+      const target = targetOffsetTop + offset;
+      window.scrollTo({
+        top: target,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
