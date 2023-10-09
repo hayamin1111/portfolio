@@ -168,10 +168,11 @@ img {
 .breadcrumb {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 4rem;
   margin-bottom: 6rem;
   @include sp {
     margin-bottom: 4rem;
+    gap: 2rem;
   }
 
   &__link {
@@ -184,6 +185,8 @@ img {
     font-family: 'Anton', sans-serif;
     @include sp {
       padding-top: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     &::before {
@@ -430,10 +433,9 @@ img {
   }
 
   &__text {
-    margin-bottom: 4rem;
-    @include sp {
-      margin-bottom: 2rem;
-    }
+    font-size: clamp(1.6rem, calc(24 / 1920 * 100vw), 2.4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
   
   &__subtitle {
@@ -583,3 +585,132 @@ img {
   }
 }
 
+
+//loading animation
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  font-size: clamp(12rem, calc(240 / 1920 * 100vw), 24rem);
+  font-family: 'Anton', sans-serif;
+  color: $color-white;
+  line-height: 1;
+  z-index: 2;
+
+  &::before {
+    display: inline-block;
+    color: $color-accent;
+    content: "<";
+  }
+
+  &::after {
+    display: inline-block;
+    color: $color-accent;
+    content: ">";
+  }
+}
+
+body{
+  &.loading {
+    &::before {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100svh;
+      background-color: $color-main;
+      content: "";
+      z-index: 1;
+    }
+
+    .loader {
+      animation: blinking .8s infinite linear;
+
+      @keyframes blinking {
+        0% {
+          opacity: .2;
+        }
+        50%{
+          opacity: 1;
+        }
+        100% {
+          opacity: .2;
+        }
+      }
+    }
+  }
+  &.loaded {
+    &::before {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100svh;
+      background-color: $color-main;
+      content: "";
+      z-index: 1;
+      animation: bgHide .3s .5s ease-in-out forwards;
+
+      @keyframes bgHide {
+        0% {
+          height: 100svh;
+        }
+        100% {
+          height: 0;
+        }
+      }
+    }
+    .loader {
+      animation: loaderHide .2s .3s ease-in-out forwards;
+
+      @keyframes loaderHide {
+        0% {
+          transform: translate(-50%, -50%) skew(-60deg) scaleX(1);
+        }
+        100% {
+          transform: translate(-50%, -50%) skew(0) scaleX(0);
+        }
+      }
+    }
+  }
+}
+
+.intro {
+  &__heading {
+    opacity: 0;
+    &.show {
+      animation: introShow .4s .2s ease-in-out forwards;
+  
+      @keyframes introShow {
+        0% {
+          opacity: 0;
+          transform: skew(-45deg) scaleY(0);
+        }
+        100% {
+          opacity: 1;
+          transform: skew(0) scaleY(1);
+        }
+      }
+    }
+  }
+  &__text {
+    opacity: 0;
+    &.show {
+      animation: introShow .4s .2s ease-in-out forwards;
+  
+      @keyframes introShow {
+        0% {
+          opacity: 0;
+          transform: skew(-15deg) scaleY(0);
+        }
+        100% {
+          opacity: 1;
+          transform: skew(0) scaleY(1);
+        }
+      }
+    }
+  }
+}

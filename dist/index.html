@@ -10,21 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.min.css">
   </head>
-  <body>
+  <body class="loading" id="js-body">
     <header class="header">
       <p class="header__name">
         EMI HAYAKAWA
       </p>
-      <h1 class="header__title">
-        PORTFOLIO
+      <h1 class="header__title" id="js-title">
+        <span>PORTFOLIO</span>
       </h1>
     </header>
     <main class="main">
       <section class="intro">
-        <h2 class="intro__heading">クリエイティブへの姿勢</h2>
-        <div class="intro__text">
+        <h2 class="intro__heading" id="js-intro">クリエイティブへの姿勢</h2>
+        <div class="intro__text" id="js-text">
           <p class="intro__lead">25歳からものづくりに携わりはじめました。当時は今と業種は異なりますが、一貫しているのは<em class="intro__emphasis">作ることへのこだわりの強さ</em>です。良いものを作るために決して妥協しない、こだわりを持って業務をやり切ります。</p>
-          <p class="intro__sub">コーダーの私の使命は、デザインの魅力をWeb上で最大限表現することと考えます。そのために、自身の表現の幅を広げようと日々学んでいます。</p>
+          <p class="intro__sub">コーダーの私の使命は、デザインの魅力をWeb上で最大限表現することと考えます。<br>そのために、自身の表現の幅を広げようと日々学んでいます。</p>
         </div>
         <ol class="breadcrumb">
           <li class="breadcrumb__item"><a href="#skills" class="breadcrumb__link">SKILLS</a></li>
@@ -162,6 +162,7 @@
         <div class="profile__inner">
           <figure class="profile__image"><img src="https://placehold.jp/640x640.png" alt="EMI HAYAKAWAイラスト" width="552" height="552" decoding="async"></figure>
           <div class="profile__content">
+            <p class="profile__text">早川 恵美</p>
             <ul class="list">
               <li class="list__item">1989年生まれ（33歳）</li>
               <li class="list__item">香川県出身、埼玉県在住</li>
@@ -189,9 +190,12 @@
         <!-- profile__inner -->
       </section>
     </main>
+    <div class="loader" id="js-loader"></div>
     <footer class="footer">
       <p class="copyright"><small>&copy;Hayakawa</small></p>
     </footer>
-    <script type="module" src="./js/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="./js/main.min.js" defer></script>
   </body>
 </html>
