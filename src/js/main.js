@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.set('.heading', {
   opacity: 0,
   y: 60,
-  skewX: "-30deg",
+  skewX: "-60deg",
 })
 ScrollTrigger.batch(".heading", {
   onEnter: batch => gsap.to(batch, {
@@ -81,12 +81,56 @@ gsap.to('.profile__content', {
     start: "top 80%",
   },
 })
+gsap.set('.works__subtitle', {
+  opacity: 0,
+  y: 60,
+  skewX: "-60deg",
+})
+gsap.to('.works__subtitle', {
+  opacity: 1,
+  y: 0,
+  skewX: "0",
+  ease: Power4.out,
+  duration: .6,
+  scrollTrigger: {
+    trigger: ".works__subtitle",
+    start: "top 80%",
+  },
+})
+gsap.set('.skills', {
+  backgroundColor: "#ffffff",
+  color: '#222222',
+})
+gsap.to('.skills', {
+  backgroundColor: "#222222",
+  color: '#ffffff',
+  ease: Power4.out,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".skills",
+    start: "top 50%",
+  },
+})
+gsap.set('.profile__image', {
+  opacity: 0,
+  y: 10,
+})
+gsap.to('.profile__image', {
+  opacity: 1,
+  y: 0,
+  ease: Power4.out,
+  duration: .3,
+  scrollTrigger: {
+    trigger: ".profile__image",
+    start: "top 50%",
+  },
+})
 
 
 //smooth scroll
 const anchorElems = document.querySelectorAll('a[href^="#"]');
 anchorElems.forEach(anchorElem => {
-   anchorElem.addEventListener('click', (event) => { 
+  anchorElem.addEventListener('click', (event) => { 
     event.preventDefault();
     let href = anchorElem.getAttribute('href');
     let targetElem = document.getElementById(href.replace('#',''));

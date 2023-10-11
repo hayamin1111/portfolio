@@ -8,7 +8,7 @@ $color-base: #f1f1f1;
 $color-main: #222222;
 $color-sub: #666666;
 $color-alpha: rgba(0, 0, 0, .1);
-$color-sub03: #ebebeb;
+$color-sub02: #ebebeb;
 $color-white: #ffffff;
 $color-accent: #DB6B2C;
 
@@ -19,7 +19,7 @@ html {
 body {
   background-color: $color-base;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(1.4rem, calc(18 / 1920 * 100vw), 1.8rem);
+  font-size: clamp(1.4rem, calc(20 / 1920 * 100vw), 2rem);
   min-height: 0vw;
   color: $color-main;
   box-sizing: border-box;
@@ -90,14 +90,14 @@ img {
     margin-left: 4rem;
     margin-right: 4rem;
     text-align: right;
-    font-size: clamp(6rem, calc(120 / 1920 * 100vw), 12rem);
+    font-size: clamp(5rem, calc(120 / 1920 * 100vw), 12rem);
     font-family: 'Anton', sans-serif;
     font-weight: 700;
     line-height: 1;
     content: "< /PORTFOLIO >";
     @include sp {
-      margin-left: 2rem;
-      margin-right: 2rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
     }
   }
 }
@@ -129,7 +129,7 @@ img {
       left: 0;
       width: 30%;
       height: 1rem;
-      background-color: $color-main;
+      background-color: currentColor;
       content: "";
       @include sp {
         width: 100%;
@@ -269,7 +269,7 @@ img {
       left: 0;
       width: 100%;
       height: 1rem;
-      background-color: $color-main;
+      background-color: currentColor;
       content: "";
       @include sp {
         height: .8rem;
@@ -287,7 +287,7 @@ img {
     font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
     font-family: 'Anton', sans-serif;
     font-weight: 700;
-    color: $color-alpha;
+    color: $color-sub;
     content: "< /SKILLS >";
   }
 
@@ -351,7 +351,7 @@ img {
   &__subtext {
     margin-bottom: 2rem;
     font-size: clamp(1.2rem, calc(16 / 1920 * 100vw), 1.6rem);
-    color: $color-sub;
+    color: $color-sub02;
     @include sp {
       margin-bottom: .5rem;
     }
@@ -420,7 +420,7 @@ img {
     display: flex;
     gap: 8rem;
     @include sp {
-      flex-direction: column;
+      flex-direction: column-reverse;
       gap: 2rem;
     }
   }
@@ -428,7 +428,7 @@ img {
   &__image {
     max-width: 30%;
     @include sp {
-      max-width: 50%;
+      max-width: 100%;
     }
   }
 
