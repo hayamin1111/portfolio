@@ -48,7 +48,7 @@ gsap.timeline({
 })
 
 gsap.set('.skills', {
-  backgroundColor: "#ffffff",
+  backgroundColor: "#222222",
   color: '#666666',
 })
 gsap.to('.skills', {
@@ -81,162 +81,95 @@ gsap.to('.skills__subsection', {
   },
 })
 
-// gsap.set('.card', {
-//   opacity: 0,
-//   y: 60,
-// })
-// gsap.to('.card', {
-//   opacity: 1,
-//   y: 0,
-//   ease: Power4.out,
-//   duration: .6,
-//   scrollTrigger: {
-//     trigger: ".card",
-//     start: "top 70%",
-//   },
-//   stagger: {
-//     from: "start", 
-//     amount: 0.6,
-//   },
-// })
-// gsap.set('.profile__content', {
-//   opacity: 0,
-//   y: 60,
-// })
-// gsap.to('.profile__content', {
-//   opacity: 1,
-//   y: 0,
-//   ease: Power4.out,
-//   duration: .6,
-//   scrollTrigger: {
-//     trigger: ".profile__content",
-//     start: "top 80%",
-//   },
-// })
-// gsap.set('.works__subtitle', {
-//   opacity: 0,
-//   y: 60,
-//   skewX: "-60deg",
-// })
-// gsap.to('.works__subtitle', {
-//   opacity: 1,
-//   y: 0,
-//   skewX: "0",
-//   ease: Power4.out,
-//   duration: .6,
-//   scrollTrigger: {
-//     trigger: ".works__subtitle",
-//     start: "top 80%",
-//   },
-// })
-// gsap.set('.profile__image', {
-//   opacity: 0,
-//   y: 10,
-// })
-// gsap.to('.profile__image', {
-//   opacity: 1,
-//   y: 0,
-//   ease: Power4.out,
-//   duration: .3,
-//   scrollTrigger: {
-//     trigger: ".profile__image",
-//     start: "top 50%",
-//   },
-// })
+gsap.set('.profile__content', {
+  opacity: 0,
+  y: 60,
+})
+gsap.to('.profile__content', {
+  opacity: 1,
+  y: 0,
+  ease: Power4.out,
+  duration: .6,
+  scrollTrigger: {
+    trigger: ".profile__content",
+    start: "top 80%",
+  },
+})
+gsap.set('.works__link', {
+  opacity: 0,
+  y: 40,
+  skewX: "-30deg",
+})
+gsap.to('.works__link', {
+  opacity: 1,
+  y: 0,
+  skewX: "0",
+  ease: Power4.out,
+  duration: .6,
+  scrollTrigger: {
+    trigger: ".works__link",
+    start: "top 80%",
+  },
+  stagger: {
+    from: "start", 
+    amount: 0.6,
+  },
+})
+gsap.set('.profile__image', {
+  opacity: 0,
+  y: 10,
+})
+gsap.to('.profile__image', {
+  opacity: 1,
+  y: 0,
+  ease: Power4.out,
+  duration: .3,
+  scrollTrigger: {
+    trigger: ".profile__image",
+    start: "top 50%",
+  },
+})
 
 
-// //smooth scroll
-// const anchorElems = document.querySelectorAll('a[href^="#"]');
-// anchorElems.forEach(anchorElem => {
-//   anchorElem.addEventListener('click', (event) => { 
-//     event.preventDefault();
-//     let href = anchorElem.getAttribute('href');
-//     let targetElem = document.getElementById(href.replace('#',''));
-//     if(targetElem) {
-//       const targetOffsetTop = targetElem.getBoundingClientRect().top;
-//       const offset = window.pageYOffset;
-//       const target = targetOffsetTop + offset;
-//       window.scrollTo({
-//         top: target,
-//         behavior: 'smooth',
-//       });
-//     } else {
-//       window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth'
-//       });
-//     }
-//   });
-// });
+//smooth scroll
+const anchorElems = document.querySelectorAll('a[href^="#"]');
+anchorElems.forEach(anchorElem => {
+  anchorElem.addEventListener('click', (event) => { 
+    event.preventDefault();
+    let href = anchorElem.getAttribute('href');
+    let targetElem = document.getElementById(href.replace('#',''));
+    if(targetElem) {
+      const targetOffsetTop = targetElem.getBoundingClientRect().top;
+      const offset = window.pageYOffset;
+      const target = targetOffsetTop + offset;
+      window.scrollTo({
+        top: target,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
 
+
+// hover animation
+const hoverTargets = document.querySelectorAll('.works__link');
+hoverTargets.forEach( target => {
+  target.addEventListener('mouseover', (elem) => {
+    const data = elem.currentTarget.dataset.type;
+    const figures = document.querySelectorAll('.works__figure');
+    figures.forEach(figure => {
+      figure.classList.remove('is-show');
+    })
+    document.getElementById(data).classList.add('is-show')
+    // console.log(data);
+  });
+})
 
 //parallax
 
 
-
-//three.js
-// let scene, camera, mesh, renderer, planeGeometry;
-// let initialMeshWidth, initialMeshHeight;
-// window. addEventListener('load', init);
-
-// const canvas = document.getElementById('canvas');
-// console.log(canvas.innerWidth);
-// function init() {
-//   initialMeshWidth = window.innerWidth / 2 /  100 * 160 * 0.35;
-//   initialMeshHeight = window.innerWidth / 2 / 100 * 90 * 0.35;
-
-//   scene = new THREE.Scene();
-  
-//   camera = new THREE.PerspectiveCamera(
-//     50,
-//     window.innerWidth / window.innerHeight,
-//     0.1, 
-//     1000
-//   );
-//   camera.position.set(0, 0, +300);
-
-//   renderer = new THREE.WebGLRenderer(
-//     {alpha: true}
-//   );
-//   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-//   renderer.setPixelRatio(window.devicePixelRatio);
-//   canvas.appendChild(renderer.domElement);
-//   renderer.render(scene, camera);
-  
-//   let textures = new THREE.TextureLoader().load("../img/img-website_parallax.jpg");
-  
-//   planeGeometry = new THREE.PlaneGeometry(initialMeshWidth, initialMeshHeight);
-  
-//   let boxMaterial = new THREE.MeshBasicMaterial({map: textures, side: THREE.DoubleSide});
-
-//   mesh = new THREE.Mesh(planeGeometry, boxMaterial);
-//   scene.add(mesh);
-//   mesh.scale.x = initialMeshWidth / (window.innerWidth / 2);
-//   mesh.scale.y = initialMeshHeight / (window.innerHeight / 2);
-
-//   animate();
-// }
-
-// window.addEventListener('resize', onWindowResize);
-// function onWindowResize() {
-//   const width = window.innerWidth / 2;
-//   const height = window.innerHeight / 2;
-
-//   renderer.setPixelRatio(window.devicePixelRatio);
-//   renderer.setSize(width, height);
-
-//   mesh.scale.x = initialMeshWidth / width / 100 * 160;
-//   mesh.scale.y = initialMeshHeight / width / 100 * 90;
-
-//   camera.aspect = width / height;
-//   camera.updateProjectionMatrix();
-// }
-
-// let step = 0;
-// function animate() {
-//   mesh.rotation.y = step;
-//   step += 0.002;
-//   renderer.render(scene, camera);
-  
-//   requestAnimationFrame(animate);
-// }
