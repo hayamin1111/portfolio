@@ -8,31 +8,61 @@
   <link rel="icon" href="./img/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.min.css">
   </head>
   <body class="loading" id="js-body">
-    <header class="header">
-      <p class="header__name">
-        EMI HAYAKAWA
-      </p>
-      <h1 class="header__title" id="js-title">
-        <span>PORTFOLIO</span>
-      </h1>
-    </header>
+    <div class="mainvisual" id="js-mainvisual">
+      <div class="mainvisual__contents">
+        <header class="header">
+          <p class="header__name">
+            EMI HAYAKAWA
+          </p>
+        </header>
+        <h1 class="mainvisual__title" id="js-title">PORTFOLIO</h1>
+        <div class="bg" aria-hidden="true">
+          <div class="bg__texts">
+            <span class="bg__text">W</span>
+            <span class="bg__text">E</span>
+            <span class="bg__text">L</span>
+            <span class="bg__text">C</span>
+            <span class="bg__text">O</span>
+            <span class="bg__text">M</span>
+            <span class="bg__text">E</span>
+            <span class="bg__text">&nbsp;</span>
+            <span class="bg__text">T</span>
+            <span class="bg__text">O</span>
+            <span class="bg__text">&nbsp;</span>
+            <span class="bg__text">M</span>
+            <span class="bg__text">Y</span>
+            <span class="bg__text">&nbsp;</span>
+            <span class="bg__text">W</span>
+            <span class="bg__text">E</span>
+            <span class="bg__text">B</span>
+            <span class="bg__text">S</span>
+            <span class="bg__text">I</span>
+            <span class="bg__text">T</span>
+            <span class="bg__text">E</span>
+            <span class="bg__text">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <main class="main">
-      <section class="intro">
-        <h2 class="intro__heading" id="js-intro">クリエイティブへの姿勢</h2>
-        <div class="intro__text" id="js-text">
-          <p class="intro__lead">25歳からものづくりに携わりはじめました。当時は今と業種は異なりますが、一貫しているのは<em class="intro__emphasis">作ることへのこだわりの強さ</em>です。良いものを作るために決して妥協しない、こだわりを持って業務をやり切ります。</p>
-          <p class="intro__sub">コーダーの私の使命は、デザインの魅力をWeb上で最大限表現することと考えます。<br>そのために、自身の表現の幅を広げようと日々学んでいます。</p>
+      <div class="intro">
+        <div class="intro__text">
+          <p class="intro__lead">
+            <span class="intro__textwrapper"><span class="intro__textinner">ものづくりに携わって8年、</span></span>
+              <span class="intro__textwrapper"><span class="intro__textinner">一貫しているのは作ることへのこだわりです。</span></span>
+            <span class="intro__textwrapper"><span class="intro__textinner">良いものを作るために決して妥協せず業務に取り組むこと。</span></span>
+            <span class="intro__textwrapper"><span class="intro__textinner">それが<em class="intro__emphasis">私のクリエイティブへの姿勢</em>です。</span></span></p>
         </div>
         <ol class="breadcrumb">
           <li class="breadcrumb__item"><a href="#skills" class="breadcrumb__link">SKILLS</a></li>
           <li class="breadcrumb__item"><a href="#works" class="breadcrumb__link">WORKS</a></li>
           <li class="breadcrumb__item"><a href="#profile" class="breadcrumb__link">PROFILE</a></li>
         </ol>
-      </section>
+      </div>
       <section class="section skills" id="skills">
         <div class="skills__inner">
           <div class="skills__left">
@@ -58,6 +88,11 @@
                 打ち合わせでご要望を伺い、工数算出・見積もり作成、PowerPointやXDでのワイヤーフレーム作成、デザイナー・コーダーへの共有、チェック作業、納品後には請求書の発行まで行っています。</p>
             </section>
             <section class="skills__subsection">
+              <h3 class="skills__subtitle">Webデザイン</h3>
+              <p class="skills__subtext">Photoshop/Illustrator</p>
+              <p class="skills__text">Webサイトの目的や、エンドユーザーのことを考えたデザインを意識しています。<br>Photoshopでのバナー制作も行っています。</p>
+            </section>
+            <section class="skills__subsection">
               <h3 class="skills__subtitle">Webサイト運用・更新</h3>
               <p class="skills__subtext">HTML/CSS/jQuery</p>
               <p class="skills__text">
@@ -65,11 +100,6 @@
                 テキスト修正だけでなく、デザイン案なしでサイトのトンマナに合わせた新規コンテンツ・ページ制作が可能です。<br>
                 外部コーダーや、他制作会社から引き継いだサイトの更新作業も経験があります。
               </p>
-            </section>
-            <section class="skills__subsection">
-              <h3 class="skills__subtitle">Webデザイン</h3>
-              <p class="skills__subtext">Photoshop/Illustrator</p>
-              <p class="skills__text">Webサイトの目的や、エンドユーザーのことを考えたデザインを意識しています。<br>Photoshopでのバナー制作も行っています。</p>
             </section>
           </div>
           <!-- skills__right -->
@@ -87,6 +117,16 @@
           <div class="works__subsections">
             <section class="works__subsection">
               <h3 class="works__subtitle">Webサイト</h3>
+              <div>
+                <div class="">
+                  <img src="./img/img-website_daydream.jpg" alt="趣味のイラストサイトサムネイル" width="566" height="318" decoding="async">
+                </div>
+              </div>
+
+
+
+
+              
               <div class="cards">
                 <a href="https://e-hykw.com/daydream/" target="_blank" class="card">
                   <p class="card__title">趣味のイラストを公開しているサイト</p>
@@ -193,6 +233,23 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.157.0/three.min.js" integrity="sha512-nogdM20cZX4FjsqU5H5ecK3vw8LjYN1AcUUWi7asLUVP3eJK5wldywvqFMW8CLd5/xoiJaIL3eXG82SlOWZkTA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script> -->
     <script src="./js/main.min.js" defer></script>
   </body>
 </html>
+
+<!-- 
+修正
+アニメーション
+　マウスストーカー
+　慣性スクロール？
+　画像ホバーで座標を取得して色を替える
+　コンソールにメッセージ表示
+　時間経過で何かする
+　×worksのホバー時のアニメーション変更
+　worksの抜本的改革
+　=>macのプロトタイプの中で画像が切り替わる。テキストにホバーすると、該当の画像が表示される。
+=> worksを3Dのスライダーにする。テキストホバーで切り替え
+
+
+ -->

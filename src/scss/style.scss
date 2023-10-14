@@ -46,8 +46,7 @@ img {
 
 //header
 .header {
-  margin: 6rem 4rem 10rem;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Oswald', sans-serif;
 
   @include sp {
     margin: 3rem 2rem 5rem;
@@ -56,14 +55,61 @@ img {
   &__name {
     margin-bottom: 1rem;
     min-height: 0vw;
-    font-size: clamp(2.4rem, calc(42 / 1920 * 100vw), 4.2rem);
+    font-size: clamp(4rem, calc(80 / 1920 * 100vw), 8rem);
     line-height: 1;
+  }
+
+}
+
+//mainvisual 
+.mainvisual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90svh;
+  padding: 6rem;
+
+  &.is-active::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 3rem;
+    height: 3rem;
+    margin: 10rem auto 4rem;
+    transform: translateX(-50%) rotate(-45deg);
+    border-left: .1rem solid $color-sub;
+    border-bottom: .1rem solid $color-sub;
+    content: "";
+    animation: scroll 2s infinite forwards;
+    transition: opacity .3s, visibility .3s;
+
+    @keyframes scroll {
+      0% {
+        transform: translate(-50%, 0) rotate(-45deg);
+        opacity: 1;
+      }
+      90% {
+        transform: translate(-50%, 70%) rotate(-45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, 70%) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+  }
+
+  &.is-inactive::after {
+    visibility: hidden;
+    opacity: 0;
   }
 
   &__title {
     display: flex;
     align-items: center;
-    font-size: clamp(6rem, calc(120 / 1920 * 100vw), 12rem);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(8rem, calc(200 / 1920 * 100vw), 20rem);
     line-height: 1;
 
     &::before {
@@ -82,6 +128,53 @@ img {
   }
 }
 
+
+.bg {
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  opacity: .2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(100%, -50%);
+
+  &__texts {
+    font-family: 'Oswald', sans-serif;
+    transform-style: preserve-3d;
+    animation:  anim 25s linear infinite;
+  }
+  @keyframes anim {
+    0% {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: perspective(1000px) rotateX(360deg) rotateY(360deg);
+    }
+  }
+
+  &__texts :first-child {
+    color: $color-accent;
+  }
+  &__text {
+    position: absolute;
+    font-size: clamp(10rem, calc(200 / 1920 * 100vw), 20rem);
+    white-space: nowrap;
+    font-weight: bold;
+    padding: 0 1rem;
+    transform-style:  preserve-3d;
+    
+    @for $i from 1 through 22 {
+
+      &:nth-of-type(#{$i}) {
+        color: lighten($color-sub, 1% * $i);
+        transform: translate(-50%, -50%) rotateX(calc($i * (360deg / 22) * -1)) translateZ(clamp(14rem, calc(420 / 1920 * 100vw), 42rem)) rotateZ(90deg);
+      }
+    }
+  }
+}
+
+
 //main
 .main {
   &::after {
@@ -91,7 +184,7 @@ img {
     margin-right: 4rem;
     text-align: right;
     font-size: clamp(5rem, calc(120 / 1920 * 100vw), 12rem);
-    font-family: 'Anton', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     line-height: 1;
     content: "< /PORTFOLIO >";
@@ -104,8 +197,8 @@ img {
 
 //intro
 .intro {
-  padding-right: 4rem;
-  padding-left: 4rem;
+  padding-right: 6rem;
+  padding-left: 6rem;
   @include sp {
     padding-right: 2rem;
     padding-left: 2rem;
@@ -139,78 +232,79 @@ img {
   }
 
   &__text {
-    width: calc(1065 / 1326 * 100%);
-    margin-left: auto;
-    margin-bottom: 10rem;
+    margin-bottom: 12rem;
     font-weight: 700;
     @include sp {
-      width: auto;
       margin-bottom: 5rem;
       margin-left: 2rem;
     }
   }
 
   &__lead {
-    margin-bottom: 2rem;
     font-size: clamp(2.4rem, calc(44 / 1920 * 100vw), 4.4rem);
   }
 
   &__emphasis {
-    background: linear-gradient(to bottom, transparent 70%, $color-accent 70.5%);
+    position: relative;
+    &::before {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: .4em;
+      background-color: $color-accent;
+      transform: skew(-35deg);
+      content: "";
+      z-index: -1;
+      transition: width .3s;
+    }
+    &.is-active::before {
+      width: 100%;
+    }
+    // background: linear-gradient(to bottom, transparent 70%, $color-accent 70.5%);
   }
 
-  &__sub {
-    font-size: clamp(1.4rem, calc(24 / 1920 * 100vw), 2.4rem);
+  &__textwrapper {
+    display: block;
+    overflow: hidden;
+  }
+
+  &__textinner {
+    display: block;
   }
 }
 
 //breadcrumb
 .breadcrumb {
   display: flex;
-  justify-content: center;
-  gap: 4rem;
-  margin-bottom: 6rem;
+  justify-content: space-between;
+  width: calc(1024 / 1366 * 100%);
+  margin: 0 auto 6rem;
   @include sp {
     margin-bottom: 4rem;
     gap: 2rem;
   }
 
+  &__item {
+    width: calc(100% / 3 - 4rem);
+  }
+
   &__link {
+    display: block;
     position: relative;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border-bottom: 2px solid $color-main;
+    padding: 1rem 2rem;
     font-weight: 700;
+    background-color: $color-sub;
+    border: 2px solid $color-sub;
+    border-radius: 25rem;
+    color: $color-white;
     font-size: clamp(1.8rem, calc(32 / 1920 * 100vw), 3.2rem);
-    font-family: 'Anton', sans-serif;
-    @include sp {
-      padding-top: 2rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    &::before {
-      display: inline-block;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 2rem;
-      height: 1rem;
-      background-color: $color-sub;
-      opacity: 0;
-      transform: translate(-50%, 100%);
-      clip-path: polygon(0 0, 50% 100%, 100% 0);
-      transition: opacity .3s;
-      content: "";
-    }
-
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    transition: background-color .3s, color .2s;
     @include hover {
-      border-bottom: 2px solid $color-sub;
+      background-color: $color-sub02;
       color: $color-sub;
-
-      &::before {
-        opacity: 1;
-      }
     }
   }
 }
@@ -236,21 +330,21 @@ img {
   &__main {
     display: block;
     position: relative;
-    font-size: clamp(2.8rem, calc(48 / 1920 * 100vw), 4.8rem);
-    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.2rem, calc(560 / 1920 * 100vw), 5.6rem);
+    font-family: 'Oswald', sans-serif;
     font-style: normal;
 
     &::before {
       display: inline-block;
       margin-right: 1rem;
-      font-family: 'Anton', sans-serif;
+      font-family: 'Oswald', sans-serif;
       content: "<";
     }
   
     &::after {
       display: inline-block;
       margin-left: 1rem;
-      font-family: 'Anton', sans-serif;
+      font-family: 'Oswald', sans-serif;
       content: ">";
     }
   }
@@ -285,7 +379,7 @@ img {
     margin-top: 2rem;
     text-align: right;
     font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
-    font-family: 'Anton', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: $color-sub;
     content: "< /SKILLS >";
@@ -341,7 +435,7 @@ img {
   &__subtitle {
     margin-bottom: 1rem;
     font-weight: 700;
-    font-size: clamp(2rem, calc(32 / 1920 * 100vw), 3.2rem);
+    font-size: clamp(2rem, calc(40 / 1920 * 100vw), 4rem);
   }
 
   &__text {
@@ -350,7 +444,7 @@ img {
 
   &__subtext {
     margin-bottom: 2rem;
-    font-size: clamp(1.2rem, calc(16 / 1920 * 100vw), 1.6rem);
+    font-size: clamp(1.4rem, calc(16 / 1920 * 100vw), 1.6rem);
     color: $color-sub02;
     @include sp {
       margin-bottom: .5rem;
@@ -365,7 +459,7 @@ img {
     margin-top: 2rem;
     text-align: right;
     font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
-    font-family: 'Anton', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: $color-alpha;
     content: "< /WORKS >";
@@ -410,7 +504,7 @@ img {
     margin-top: 2rem;
     text-align: right;
     font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
-    font-family: 'Anton', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: $color-alpha;
     content: "< /PROFILE >";
@@ -579,7 +673,7 @@ img {
 .copyright {
   text-align: right;
   padding: 1rem 4rem;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Oswald', sans-serif;
   @include sp {
     padding: 1rem 2rem;
   }
@@ -595,7 +689,7 @@ img {
   display: flex;
   align-items: center;
   font-size: clamp(12rem, calc(240 / 1920 * 100vw), 24rem);
-  font-family: 'Anton', sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: $color-white;
   line-height: 1;
   z-index: 2;
@@ -615,6 +709,7 @@ img {
 
 body{
   &.loading {
+    overflow-y: hidden;
     &::before {
       position: fixed;
       top: 0;
@@ -643,6 +738,7 @@ body{
     }
   }
   &.loaded {
+    overflow-y: scroll;
     &::before {
       position: fixed;
       top: 0;
@@ -675,42 +771,36 @@ body{
         }
       }
     }
+    .header__name {
+      opacity: 0;
+      animation: nameSize .2s .7s ease-in-out forwards;
+
+      @keyframes nameSize {
+        0% {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+        100% {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+      }
+    }
+    .mainvisual__title {
+      opacity: 0;
+      animation: titleSize .3s .9s ease-in-out forwards;
+
+      @keyframes titleSize {
+        0% {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+        100% {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+      }
+    }
   }
 }
 
-.intro {
-  &__heading {
-    opacity: 0;
-    &.show {
-      animation: introShow .4s .2s ease-in-out forwards;
-  
-      @keyframes introShow {
-        0% {
-          opacity: 0;
-          transform: skew(-45deg) scaleY(0);
-        }
-        100% {
-          opacity: 1;
-          transform: skew(0) scaleY(1);
-        }
-      }
-    }
-  }
-  &__text {
-    opacity: 0;
-    &.show {
-      animation: introShow .4s .2s ease-in-out forwards;
-  
-      @keyframes introShow {
-        0% {
-          opacity: 0;
-          transform: skew(-15deg) scaleY(0);
-        }
-        100% {
-          opacity: 1;
-          transform: skew(0) scaleY(1);
-        }
-      }
-    }
-  }
-}
