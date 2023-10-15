@@ -64,7 +64,7 @@ gsap.to('.skills', {
 
 gsap.set('.skills__subsection', {
   opacity: 0,
-  y: 60,
+  y: 40,
 })
 gsap.to('.skills__subsection', {
   opacity: 1,
@@ -73,7 +73,7 @@ gsap.to('.skills__subsection', {
   duration: .6,
   scrollTrigger: {
     trigger: ".skills__subsection",
-    start: "top 60%",
+    start: "top 80%",
   },
   stagger: {
     from: "start", 
@@ -112,7 +112,24 @@ gsap.to('.works__link', {
   },
   stagger: {
     from: "start", 
-    amount: 0.6,
+    amount: 0.4,
+  },
+})
+gsap.set('.card', {
+  opacity: 0,
+  y: 10,
+})
+gsap.to('.card', {
+  opacity: 1,
+  y: 0,
+  ease: Power4.out,
+  scrollTrigger: {
+    trigger: ".card",
+    start: "top 80%",
+  },
+  stagger: {
+    from: "start", 
+    amount: 1.4,
   },
 })
 gsap.set('.profile__image', {
@@ -126,7 +143,7 @@ gsap.to('.profile__image', {
   duration: .3,
   scrollTrigger: {
     trigger: ".profile__image",
-    start: "top 50%",
+    start: "top 90%",
   },
 })
 
@@ -165,11 +182,20 @@ hoverTargets.forEach( target => {
     figures.forEach(figure => {
       figure.classList.remove('is-show');
     })
-    document.getElementById(data).classList.add('is-show')
-    // console.log(data);
+    document.getElementById(data).classList.add('is-show');
   });
 })
 
 //parallax
-
+const parallax = (target, speed) => {
+  const layers = document.querySelectorAll('.js-layer');
+  layers.forEach( layer => {
+    target.addEventListener('mousemove', (event) => {
+      const x = (window.innerWidth - event.pageX * speed) / 100;
+      const y = (window.innerWidth - event.pageY * speed) / 100;
+      layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+  })
+}
+parallax(document.querySelector('.mainvisual'),  7);
 

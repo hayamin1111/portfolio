@@ -19,7 +19,7 @@ html {
 body {
   background-color: $color-base;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: clamp(1.4rem, calc(20 / 1920 * 100vw), 2rem);
+  font-size: clamp(1.4rem, calc(20 / 1366 * 100vw), 2rem);
   min-height: 0vw;
   color: $color-main;
   box-sizing: border-box;
@@ -48,14 +48,10 @@ img {
 .header {
   font-family: 'Oswald', sans-serif;
 
-  @include sp {
-    margin: 3rem 2rem 5rem;
-  }
-
   &__name {
     margin-bottom: 1rem;
     min-height: 0vw;
-    font-size: clamp(4rem, calc(80 / 1920 * 100vw), 8rem);
+    font-size: clamp(3.2rem, calc(80 / 1366 * 100vw), 8rem);
     line-height: 1;
   }
 
@@ -69,6 +65,10 @@ img {
   justify-content: center;
   height: 90svh;
   padding: 6rem;
+
+  @include sp {
+    padding: 1rem;
+  }
 
   &.is-active::after {
     position: absolute;
@@ -109,7 +109,7 @@ img {
     display: flex;
     align-items: center;
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(8rem, calc(200 / 1920 * 100vw), 20rem);
+    font-size: clamp(5.2rem, calc(200 / 1366 * 100vw), 20rem);
     line-height: 1;
 
     &::before {
@@ -138,6 +138,7 @@ img {
   justify-content: center;
   align-items: center;
   transform: translate(100%, -50%);
+  z-index: -1;
 
   &__texts {
     font-family: 'Oswald', sans-serif;
@@ -158,16 +159,14 @@ img {
   }
   &__text {
     position: absolute;
-    font-size: clamp(10rem, calc(200 / 1920 * 100vw), 20rem);
+    font-size: clamp(10rem, calc(160 / 1366 * 100vw), 16rem);
     font-weight: bold;
     padding: 0 1rem;
-    text-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .2);
     
     @for $i from 1 through 22 {
-
       &:nth-of-type(#{$i}) {
         color: lighten($color-sub, 1% * $i);
-        transform: translate(-50%, -50%) rotateX(calc($i * (360deg / 22) * -1)) translateZ(clamp(14rem, calc(420 / 1920 * 100vw), 42rem)) rotateZ(90deg);
+        transform: translate(-50%, -50%) rotateX(calc($i * (360deg / 22) * -1)) translateZ(clamp(18rem, calc(320 / 1366 * 100vw), 32rem)) rotateZ(90deg);
       }
     }
   }
@@ -182,7 +181,7 @@ img {
     margin-left: 4rem;
     margin-right: 4rem;
     text-align: right;
-    font-size: clamp(5rem, calc(120 / 1920 * 100vw), 12rem);
+    font-size: clamp(5rem, calc(120 / 1366 * 100vw), 12rem);
     font-family: 'Oswald', sans-serif;
     line-height: 1;
     content: "< /PORTFOLIO >";
@@ -207,7 +206,7 @@ img {
     margin-bottom: 5rem;
     padding-bottom: 2rem;
     font-weight: 700;
-    font-size: clamp(1.8rem, calc(32 / 1920 * 100vw), 3.2rem);
+    font-size: clamp(1.8rem, calc(32 / 1366 * 100vw), 3.2rem);
     @include sp {
       width: fit-content;
       margin-bottom: 2rem;
@@ -234,12 +233,11 @@ img {
     font-weight: 700;
     @include sp {
       margin-bottom: 5rem;
-      margin-left: 2rem;
     }
   }
 
   &__lead {
-    font-size: clamp(2.4rem, calc(44 / 1920 * 100vw), 4.4rem);
+    font-size: clamp(1.8rem, calc(40 / 1366 * 100vw), 4rem);
   }
 
   &__emphasis {
@@ -278,12 +276,16 @@ img {
   width: calc(1024 / 1366 * 100%);
   margin: 0 auto 6rem;
   @include sp {
+    width: auto;
     margin-bottom: 4rem;
-    gap: 2rem;
   }
 
   &__item {
     width: calc(100% / 3 - 4rem);
+
+    @include sp {
+    width: calc(100% / 3 - 1rem);
+    }
   }
 
   &__link {
@@ -295,7 +297,7 @@ img {
     border: 2px solid $color-sub;
     border-radius: 25rem;
     color: $color-white;
-    font-size: clamp(1.8rem, calc(32 / 1920 * 100vw), 3.2rem);
+    font-size: clamp(1.8rem, calc(32 / 1366 * 100vw), 3.2rem);
     font-family: 'Oswald', sans-serif;
     text-align: center;
     transition: background-color .3s, color .2s;
@@ -317,17 +319,17 @@ img {
 //heading
 .heading {
   position: relative;
-  width: 30%;
+  width: 34%;
   margin-bottom: 3rem;
   @include sp {
-    width: 50%;
+    width: 100%;
     margin-bottom: 2rem;
   }
   
   &__main {
     display: block;
     position: relative;
-    font-size: clamp(3.2rem, calc(560 / 1920 * 100vw), 5.6rem);
+    font-size: clamp(2.4rem, calc(480 / 1366 * 100vw), 4.8rem);
     font-family: 'Oswald', sans-serif;
     font-style: normal;
 
@@ -351,7 +353,7 @@ img {
     display: block;
     padding-top: 1rem;
     text-align: right;
-    font-size: clamp(1.6rem, calc(48 / 1920 * 100vw), 1.8rem);
+    font-size: clamp(1.6rem, calc(48 / 1366 * 100vw), 1.8rem);
     font-weight: 700;
 
     &::after {
@@ -375,7 +377,7 @@ img {
     display: block;
     margin-top: 2rem;
     text-align: right;
-    font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
+    font-size: clamp(2.4rem, calc(48 / 1366 * 100vw), 4.8rem);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: $color-sub02;
@@ -392,7 +394,7 @@ img {
   &__left {
     position: relative;
     flex-shrink: 0;
-    width: 30%;
+    width: 34%;
     @include sp {
       width: 100%;
     }
@@ -404,12 +406,12 @@ img {
     width: 100%;
     @include sp {
       position: static;
-      width: 50%;
+      width: 100%;
     }
   }
 
   &__right {
-    margin-top: calc(clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem) + 1.5rem);
+    margin-top: calc(clamp(3.2rem, calc(480 / 1366 * 100vw), 4.8rem) + 1.5rem);
     margin-left: calc(133 / 1840 * 100%);
     flex-grow: 1;
     @include sp {
@@ -421,7 +423,7 @@ img {
   &__subsection {
     margin-bottom: 6rem;
     @include sp {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     &:last-child {
@@ -432,16 +434,12 @@ img {
   &__subtitle {
     margin-bottom: 1rem;
     font-weight: 700;
-    font-size: clamp(2rem, calc(40 / 1920 * 100vw), 4rem);
-  }
-
-  &__text {
-    font-weight: 700;
+    font-size: clamp(2rem, calc(32 / 1366 * 100vw), 2.4rem);
   }
 
   &__subtext {
     margin-bottom: 2rem;
-    font-size: clamp(1.2rem, calc(16 / 1920 * 100vw), 1.6rem);
+    font-size: clamp(1.2rem, calc(16 / 1366 * 100vw), 1.6rem);
     color: $color-sub02;
     @include sp {
       margin-bottom: .5rem;
@@ -455,7 +453,7 @@ img {
     display: block;
     margin-top: 2rem;
     text-align: right;
-    font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
+    font-size: clamp(2.4rem, calc(48 / 1366 * 100vw), 4.8rem);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: $color-alpha;
@@ -484,11 +482,9 @@ img {
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  &__inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    @include sp {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__link {
@@ -501,7 +497,7 @@ img {
     color: $color-main;
     transition: background .3s, color .3s;
     
-    svg {
+    svg rect {
       transition: fill .3s;
     }
 
@@ -509,9 +505,13 @@ img {
       background-color: $color-sub;
       color: $color-white;
 
-      svg {
+      svg rect {
         fill: $color-white;
       }
+    }
+
+    @include sp {
+      flex-wrap: wrap;
     }
 
     & + & {
@@ -529,18 +529,21 @@ img {
   &__term {
     margin-bottom: 1rem;
     font-weight: 700;
-    font-size: clamp(1.6rem, calc(24 / 1920 * 100vw), 2.4rem);
+    font-size: clamp(1.6rem, calc(24 / 1366 * 100vw), 2rem);
     color: currentColor;
   }
 
   &__skills {
     color: $color-sub;
-    font-size: clamp(1.2rem, calc(16 / 1920 * 100vw), 1.6rem);
+    font-size: clamp(1.2rem, calc(16 / 1366 * 100vw), 1.6rem);
     color: currentColor;
   }
 
   &__figures {
     position: relative;
+    @include sp {
+      display: none;
+    }
 
     &::after {
       position: absolute;
@@ -579,18 +582,15 @@ img {
     margin-inline: auto;
     opacity: 0;
     visibility: hidden;
-    animation: upDown 3s infinite both;
+    animation: upDown 3s infinite alternate backwards;
     transition: opacity .6s, visibility .6s;
 
     @keyframes upDown {
       0% {
         transform: translateY(0);
       }
-      50% {
-        transform: translateY(-.5rem);
-      }
       100% {
-        transform: translateY(0);
+        transform: translateY(-1rem);
       }
     }
 
@@ -635,16 +635,25 @@ img {
   &__image {
     aspect-ratio: 16 / 9;
   }
+
+  &__image-sp {
+    display: none;
+
+    @include sp {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
 }
 
 //profile
 .profile {
-
   &::after {
     display: block;
     margin-top: 2rem;
     text-align: right;
-    font-size: clamp(2.4rem, calc(48 / 1920 * 100vw), 4.8rem);
+    font-size: clamp(2.4rem, calc(48 / 1366 * 100vw), 4.8rem);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     color: $color-alpha;
@@ -653,7 +662,7 @@ img {
 
   &__inner {
     display: flex;
-    gap: 8rem;
+    gap: 4rem;
     @include sp {
       flex-direction: column-reverse;
       gap: 2rem;
@@ -668,7 +677,7 @@ img {
   }
 
   &__text {
-    font-size: clamp(1.6rem, calc(24 / 1920 * 100vw), 2.4rem);
+    font-size: clamp(1.6rem, calc(24 / 1366 * 100vw), 2.4rem);
     font-weight: 700;
     margin-bottom: 1rem;
   }
@@ -679,7 +688,7 @@ img {
     border-bottom: .2rem solid $color-main;
     text-align: center;
     font-weight: 700;
-    font-size: clamp(1.6rem, calc(24 / 1920 * 100vw), 2.4rem);
+    font-size: clamp(1.6rem, calc(24 / 1366 * 100vw), 2.4rem);
   }
 
 
@@ -696,7 +705,7 @@ img {
 //cards
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 3rem;
   margin: 0 1rem;
   @media (max-width: 768px) {
@@ -745,7 +754,7 @@ img {
   }
 
   &__text {
-    font-size: clamp(1.2rem, calc(14 / 1920 * 100vw), 1.4rem);
+    font-size: clamp(1.2rem, calc(14 / 1366 * 100vw), 1.4rem);
   }
   &__image {
     order: -1;
@@ -834,7 +843,7 @@ img {
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  font-size: clamp(12rem, calc(240 / 1920 * 100vw), 24rem);
+  font-size: clamp(12rem, calc(240 / 1366 * 100vw), 24rem);
   font-family: 'Oswald', sans-serif;
   color: $color-white;
   line-height: 1;
