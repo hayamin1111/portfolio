@@ -65,6 +65,7 @@ img {
   justify-content: center;
   height: 90svh;
   padding: 6rem;
+  overflow: hidden;
 
   @include sp {
     padding: 1rem;
@@ -557,7 +558,7 @@ img {
       opacity: .8;
       filter: blur(1rem);
       z-index: -1;
-      animation: fade 3s infinite both;
+      animation: fade 5s infinite both;
   
       @keyframes fade {
         0% {
@@ -582,7 +583,7 @@ img {
     opacity: 0;
     visibility: hidden;
     animation: upDown 3s infinite alternate backwards;
-    transition: opacity .6s, visibility .6s;
+    transition: opacity .5s, visibility .6s;
 
     @keyframes upDown {
       0% {
@@ -669,9 +670,10 @@ img {
   }
 
   &__image {
-    max-width: 30%;
+    max-width: 25%;
     @include sp {
-      max-width: 100%;
+      max-width: 80%;
+      margin-inline: auto;
     }
   }
 
@@ -704,7 +706,7 @@ img {
 //cards
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 3rem;
   margin: 0 1rem;
   @media (max-width: 768px) {
@@ -842,22 +844,17 @@ img {
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  font-size: clamp(12rem, calc(240 / 1366 * 100vw), 24rem);
-  font-family: 'Oswald', sans-serif;
   color: $color-white;
   line-height: 1;
   z-index: 2;
 
   &::before {
     display: inline-block;
-    color: $color-accent;
-    content: "<";
-  }
-
-  &::after {
-    display: inline-block;
-    color: $color-accent;
-    content: ">";
+    width: clamp(12rem, calc(240 / 1366 * 100vw), 24rem);
+    height: auto;
+    aspect-ratio: 61 / 54;
+    background: url(../img/loading.webp) center center / cover no-repeat;
+    content: "";
   }
 }
 

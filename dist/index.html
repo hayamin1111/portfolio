@@ -78,8 +78,8 @@
               <p class="skills__subtext">HTML/CSS/JavaScript/jQuery</p>
               <p class="skills__text">更新性を考慮したCSSコーディングが得意です。<br>
                 HTMLはチェッカーやMarkuplintを使ってHTML Living Standardに準拠できているかを確認しています。<br>
-                また、jQueryを用いてWebサイト制作における実装が可能です。<br>
-                その他、JavaScriptやGSAPを使ったインタラクションは個人制作で経験があります。</p>
+                また、jQuery（一部JavaScript）を用いてWebサイト制作における実装が可能です。<br>
+                その他、GSAPを使ったインタラクション実装は個人制作で経験があります。</p>
             </section>
             <section class="skills__subsection">
               <h3 class="skills__subtitle">顧客折衝・進行管理</h3>
@@ -128,7 +128,12 @@
                       <rect x="12" width="21" height="2" fill="#222222"/>
                     </svg>    
                     <figure class="works__image-sp">
-                      <img class="works__image" src="./img/img-website_daydream.jpg" alt="趣味のイラストサイトサムネイル" width="566" height="318" decoding="async">
+                      <img class="works__image"
+                      srcset="./img/img-website_daydream-s.webp 768w,
+                      ./img/img-website_daydream.webp 1200w"
+                      src="./img/img-website_daydream.webp" 
+                      alt="趣味のイラストサイトサムネイル" 
+                      width="566" height="318" decoding="async">
                     </figure>                  
                   </a>
                   <a class="works__link" href="https://e-hykw.com/lab02/index.html" target="_blank" data-type="portfolio">
@@ -142,7 +147,10 @@
                       <rect x="12" width="21" height="2" fill="#222222"/>
                     </svg> 
                     <figure class="works__image-sp">
-                      <img class="works__image" src="./img/img-website_portfolio.jpg" alt="ポートフォリオ第1弾サムネイル" width="566" height="318" decoding="async">
+                      <img class="works__image" 
+                      srcset="./img/img-website_portfolio-s.webp 768w,
+                      ./img/img-website_portfolio.webp 1200w"
+                      src="./img/img-website_portfolio.webp" alt="ポートフォリオ第1弾サムネイル" width="566" height="318" decoding="async">
                     </figure>
                   </a>
                   <a class="works__link" href="https://e-hykw.com/blog" target="_blank" data-type="blog">
@@ -156,7 +164,10 @@
                       <rect x="12" width="21" height="2" fill="#222222"/>
                     </svg> 
                     <figure class="works__image-sp">
-                      <img class="works__image" src="./img/img-website_blog.jpg" alt="個人ブログサムネイル" width="566" height="318" decoding="async">
+                      <img class="works__image" 
+                      srcset="./img/img-website_blog-s.webp 768w,
+                      ./img/img-website_blog.webp 1200w"
+                      src="./img/img-website_blog.webp" alt="個人ブログサムネイル" width="566" height="318" decoding="async">
                     </figure>
                   </a>
                   <a class="works__link" href="https://e-hykw.com/lab01/index.html" target="_blank" data-type="parallax">
@@ -170,22 +181,37 @@
                       <rect x="12" width="21" height="2" fill="#222222"/>
                     </svg> 
                     <figure class="works__image-sp">
-                      <img class="works__image" src="./img/img-website_parallax.jpg" alt="趣味でつくったパララックスサイトサムネイル" width="566" height="318" decoding="async">
+                      <img class="works__image" 
+                      srcset="./img/img-website_parallax-s.webp 768w,
+                      ./img/img-website_parallax.webp 1200w"
+                      src="./img/img-website_parallax.webp" alt="趣味でつくったパララックスサイトサムネイル" width="566" height="318" decoding="async">
                     </figure>
                   </a>
                 </div>
                 <div class="works__figures">
                   <figure class="works__figure js-layer works__figure_daydream is-show" id="daydream">
-                    <img class="works__image" src="./img/img-website_daydream.jpg" alt="趣味のイラストサイトサムネイル" width="566" height="318" decoding="async">
+                    <img class="works__image" 
+                    srcset="./img/img-website_daydream-s.webp 768w,
+                    ./img/img-website_daydream.webp 1200w"
+                    src="./img/img-website_daydream.webp" alt="趣味のイラストサイトサムネイル" width="566" height="318" decoding="async">
                   </figure>
                   <figure class="works__figure works__figure_portfolio" id="portfolio">
-                    <img class="works__image" src="./img/img-website_portfolio.jpg" alt="ポートフォリオ第1弾サムネイル" width="566" height="318" decoding="async">
+                    <img class="works__image" 
+                    srcset="./img/img-website_portfolio-s.webp 768w,
+                    ./img/img-website_portfolio.webp 1200w"
+                    src="./img/img-website_portfolio.webp" alt="ポートフォリオ第1弾サムネイル" width="566" height="318" decoding="async">
                   </figure>
                   <figure class="works__figure works__figure_blog" id="blog">
-                    <img class="works__image" src="./img/img-website_blog.jpg" alt="個人ブログサムネイル" width="566" height="318" decoding="async">
+                    <img class="works__image" 
+                    srcset="./img/img-website_blog-s.webp 768w,
+                    ./img/img-website_blog.webp 1200w"
+                    src="./img/img-website_blog.webp" alt="個人ブログサムネイル" width="566" height="318" decoding="async">
                   </figure>
                   <figure class="works__figure works__figure_parallax" id="parallax">
-                    <img class="works__image" src="./img/img-website_parallax.jpg" alt="趣味でつくったパララックスサイトサムネイル" width="566" height="318" decoding="async">
+                    <img class="works__image" 
+                    srcset="./img/img-website_parallax-s.webp 768w,
+                    ./img/img-website_parallax.webp 1200w"
+                    src="./img/img-website_parallax.webp" alt="趣味でつくったパララックスサイトサムネイル" width="566" height="318" decoding="async">
                   </figure>
                 </div>
               </div>
@@ -195,42 +221,66 @@
                 <a href="https://codepen.io/hayamine01/pen/MWPzRPa" target="_blank" class="card">
                   <p class="card__title">ウェーブするパネル</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_panel.jpg" alt="ウェーブするパネルのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_panel.webp" 
+                  srcset="./img/img-codepen_panel-s.webp 768w,
+                  ./img/img-codepen_panel.webp 1200w"
+                  alt="ウェーブするパネルのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/xxmwPZv" target="_blank" class="card">
                   <p class="card__title">追加・削除できるボックス</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_boxes.jpg" alt="キラキラ光るボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_boxes.webp" 
+                  srcset="./img/img-codepen_boxes-s.webp 768w,
+                  ./img/img-codepen_boxes.webp 1200w"
+                  alt="キラキラ光るボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/vYVQVZM" target="_blank" class="card">
                   <p class="card__title">動くボックス</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_square.jpg" alt="水平移動するボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_square.webp" 
+                  srcset="./img/img-codepen_square-s.webp 768w,
+                  ./img/img-codepen_square.webp 1200w"
+                  alt="水平移動するボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/JjwPEbO" target="_blank" class="card">
                   <p class="card__title">回転する球</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_rotate_ball.jpg" alt="回転する球のサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_rotate_ball.webp" 
+                  srcset="./img/img-codepen_rotate_ball-s.webp 768w,
+                  ./img/img-codepen_rotate_ball.webp 1200w"
+                  alt="回転する球のサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/KKrXMXV" target="_blank" class="card">
                   <p class="card__title">うねうねする円</p>
                   <p class="card__text">Three.js</p>
-                  <img src="./img/img-codepen_uneune.jpg" alt="うねうね動く円のサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_uneune.webp" 
+                  srcset="./img/img-codepen_uneune-s.webp 768w,
+                  ./img/img-codepen_uneune.webp 1200w"
+                  alt="うねうね動く円のサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/LYWPMmL" target="_blank" class="card">
                   <p class="card__title">パーティクル</p>
                   <p class="card__text">Canvas／JavaScript</p>
-                  <img src="./img/img-codepen_particle.jpg" alt="パーティクルサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_particle.webp" 
+                  srcset="./img/img-codepen_particle-s.webp 768w,
+                  ./img/img-codepen_particle.webp 1200w"
+                  alt="パーティクルサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/jOqJGYB" target="_blank" class="card">
                   <p class="card__title">四方に当たると色の変わる球</p>
                   <p class="card__text">Canvas／JavaScript</p>
-                  <img src="./img/img-codepen_balls.jpg" alt="四方に当たると色の変わる球サムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_balls.webp" 
+                  srcset="./img/img-codepen_balls-s.webp 768w,
+                  ./img/img-codepen_balls.webp 1200w"
+                  alt="四方に当たると色の変わる球サムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/ZEzXMjy" target="_blank" class="card">
                   <p class="card__title">CSSアニメーション</p>
                   <p class="card__text">HTML、CSS</p>
-                  <img src="./img/img-codepen_css.jpg" alt="CSSアニメーションのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <img src="./img/img-codepen_css.webp" 
+                  srcset="./img/img-codepen_css-s.webp 768w,
+                  ./img/img-codepen_css.webp 1200w"
+                  alt="CSSアニメーションのサムネイル" class="card__image" decoding="async" width="320" height="180">
                 </a>
               </div>
               <!-- cards -->
@@ -246,7 +296,10 @@
           <span class="heading__sub">自己紹介</span>
         </h2>
         <div class="profile__inner">
-          <figure class="profile__image"><img src="./img/img-profile.jpg" alt="早川恵美イラスト" width="552" height="552" decoding="async"></figure>
+          <figure class="profile__image"><img src="./img/img-profile.webp" 
+            srcset="./img/img-profile-s.webp 768w,
+            ./img/img-profile.webp 1200w"
+            alt="早川恵美イラスト" width="552" height="552" decoding="async"></figure>
           <div class="profile__content">
             <p class="profile__text">早川 恵美</p>
             <ul class="list">
@@ -262,7 +315,7 @@
               </li>
             </ul>
             <ul class="sns">
-              <li class="sns__icon"><a href="https://github.com/hayamin1111" target="_blank" class="sns__link"><img src="./img/icon-github.png" alt="Githubはこちら" width="100" height="41" decoding="async"></a></li>
+              <li class="sns__icon"><a href="https://github.com/hayamin1111" target="_blank" class="sns__link"><img src="./img/icon-github.webp" alt="Githubはこちら" width="100" height="41" decoding="async"></a></li>
               <li class="sns__icon"><a href="https://codepen.io/hayamine01" target="_blank" class="sns__link"><img src="./img/icon-codepen.webp" alt="Codepenはこちら" width="100" height="27" decoding="async"></a></li>
             </ul>
           </div>

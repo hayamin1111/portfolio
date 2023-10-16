@@ -24,7 +24,7 @@ gsap.timeline({
   ease: Power4.out,
   scrollTrigger: {
     trigger: ".intro__textinner",
-    start: "top 90%",
+    start: "top 95%",
   },
 })
 .to(".intro__textinner", {
@@ -98,12 +98,10 @@ gsap.to('.profile__content', {
 gsap.set('.works__link', {
   opacity: 0,
   y: 40,
-  skewX: "-30deg",
 })
 gsap.to('.works__link', {
   opacity: 1,
   y: 0,
-  skewX: "0",
   ease: Power4.out,
   duration: .6,
   scrollTrigger: {
