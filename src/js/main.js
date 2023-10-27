@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.set('.intro__textinner', {
   y: 60,
 })
-gsap.set(".breadcrumb__item", {
+gsap.set(".anchor__item", {
   opacity: 0,
   y: 30,
 })
@@ -24,7 +24,7 @@ gsap.timeline({
   ease: Power4.out,
   scrollTrigger: {
     trigger: ".intro__textinner",
-    start: "top 95%",
+    start: "bottom 90%",
   },
 })
 .to(".intro__textinner", {
@@ -37,7 +37,7 @@ gsap.timeline({
 })
 .add(() => document.querySelector('.mainvisual').classList.add('is-inactive'))
 .add(() => document.querySelector('.intro__emphasis').classList.add('is-active'))
-.to(".breadcrumb__item", {
+.to(".anchor__item", {
   opacity: 1,
   y: 0,
   duration: .8,
@@ -170,6 +170,25 @@ anchorElems.forEach(anchorElem => {
   });
 });
 
+//anchor animation
+document.querySelectorAll('.anchor__link').forEach(function (anchor) {
+  anchor.addEventListener('mouseenter', function(elem)  {
+    console.log(elem);
+    const x = elem.clientX - this.getBoundingClientRect().left;
+    const y = elem.clientY - this.getBoundingClientRect().top;
+    const bg = this.querySelector('.anchor__bg');
+    bg.style.left = x + 'px';
+    bg.style.top = y + 'px';
+  });
+  anchor.addEventListener('mouseout', function(elem)  {
+    console.log(elem);
+    const x = elem.clientX - this.getBoundingClientRect().left;
+    const y = elem.clientY - this.getBoundingClientRect().top;
+    const bg = this.querySelector('.anchor__bg');
+    bg.style.left = x + 'px';
+    bg.style.top = y + 'px';
+  });
+});
 
 // hover animation
 const hoverTargets = document.querySelectorAll('.works__link');

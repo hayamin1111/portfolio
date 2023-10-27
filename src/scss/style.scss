@@ -17,13 +17,15 @@ html {
   font-size: 62.5%;
 }
 body {
+  width: 100%;
+  min-height: 0vw;
   background-color: $color-base;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: clamp(1.4rem, calc(20 / 1366 * 100vw), 2rem);
-  min-height: 0vw;
   color: $color-main;
   box-sizing: border-box;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 img {
   width: 100%;
@@ -49,10 +51,14 @@ img {
   font-family: 'Oswald', sans-serif;
 
   &__name {
+    opacity: 0;
+    transform: scaleX(0);
     margin-bottom: 1rem;
     min-height: 0vw;
     font-size: clamp(3.2rem, calc(80 / 1366 * 100vw), 8rem);
     line-height: 1;
+    transition: opacity .3s, transform .3s;
+    transition-delay: .7s;
   }
 
 }
@@ -63,6 +69,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
   height: 90svh;
   padding: 6rem;
   overflow: hidden;
@@ -112,6 +119,11 @@ img {
     font-family: 'Oswald', sans-serif;
     font-size: clamp(5.2rem, calc(200 / 1366 * 100vw), 20rem);
     line-height: 1;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity .3s, transform .3s;
+    transition-delay: .9s;
+
 
     &::before {
       display: inline-block;
@@ -269,8 +281,9 @@ img {
   }
 }
 
-//breadcrumb
-.breadcrumb {
+//anchor
+.anchor {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: calc(1024 / 1366 * 100%);
@@ -281,30 +294,49 @@ img {
   }
 
   &__item {
+    position: relative;
     width: calc(100% / 3 - 4rem);
-
     @include sp {
-    width: calc(100% / 3 - 1rem);
+      width: calc(100% / 3 - 1rem);
     }
   }
 
   &__link {
-    display: block;
     position: relative;
+    display: block;
     padding: 1rem 2rem;
     font-weight: 700;
-    background-color: $color-sub;
-    border: 2px solid $color-sub;
+    border: .2rem solid $color-sub;
     border-radius: 25rem;
-    color: $color-white;
+    color: $color-sub;
     font-size: clamp(1.8rem, calc(32 / 1366 * 100vw), 3.2rem);
     font-family: 'Oswald', sans-serif;
     text-align: center;
-    transition: background-color .3s, color .2s;
+    transition: color .3s, border .3s;
+    overflow: hidden;
+
     @include hover {
-      background-color: $color-sub02;
-      color: $color-sub;
+      color: $color-white;
+      border: .2rem solid $color-accent;
+
+      .anchor__bg {
+        width: 250%;
+        height: 250%;
+      }
     }
+  }
+
+  &__bg {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 5rem;
+    background-color: $color-accent;
+    transition: width .3s, height .3s;
+    z-index: -1;
+    
   }
 }
 
@@ -839,16 +871,32 @@ img {
 //loading animation
 .loader {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
-  color: $color-white;
-  line-height: 1;
+  justify-content: center;
+  width: 100%;
+  height: 100svh;
   z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .1s 3s, visibility .1s 3s;
 
-  &::before {
+  &__tag {
+    display: inline-block;
+    
+    // opacity: 1;
+    // visibility: visible;
+    // transform: skew(0deg);
+    // animation: loaderHide .2s .3s ease-in-out forwards;
+
+    transition: transform .2s .2s, opacity .3s 1s;
+    -webkit-transition: -webkit-transform .2s .2s, opacity .3s 1s;
+    // transition: transform .2s .2s, opacity 1s 5s, visibility 1s 5s;
+  }
+
+  &__tag::before {
     display: inline-block;
     width: clamp(12rem, calc(240 / 1366 * 100vw), 24rem);
     height: auto;
@@ -860,7 +908,6 @@ img {
 
 body{
   &.loading {
-    overflow-y: hidden;
     &::before {
       position: fixed;
       top: 0;
@@ -873,23 +920,38 @@ body{
     }
 
     .loader {
-      animation: blinking .8s infinite linear;
+      // transition: z-index 0s 2s;
+      // opacity: 1;
+      // visibility: visible;
+      // transform: skew(0deg);
+      // animation: loaderHide .2s .3s ease-in-out forwards;
 
-      @keyframes blinking {
-        0% {
-          opacity: .2;
-        }
-        50%{
-          opacity: 1;
-        }
-        100% {
-          opacity: .2;
-        }
+      // transition: transform 3s;
+      // // transition: opacity .2s, visibility .2s, transform .2s;
+      // transition-delay: .3s;
+      // transition-delay: opacity .3s, visibility .3s, transform .1s;
+
+      // animation: blinking .8s infinite linear;
+
+      // @keyframes blinking {
+      //   0% {
+      //     opacity: .2;
+      //   }
+      //   50%{
+      //     opacity: 1;
+      //   }
+      //   100% {
+      //     opacity: .2;
+      //   }
+      // }
+
+      &__tag {
+        -webkit-transition: opacity .3s 1s, visibility .3s 1s, -webkit-transform .1s .2s;
+        transition: opacity .3s 1s, visibility .3s 1s, transform .1s .2s;
       }
     }
   }
   &.loaded {
-    overflow-y: scroll;
     &::before {
       position: fixed;
       top: 0;
@@ -911,46 +973,45 @@ body{
       }
     }
     .loader {
-      animation: loaderHide .2s .3s ease-in-out forwards;
+      opacity: 0;
+      visibility: hidden;
+      // z-index: -1;
 
-      @keyframes loaderHide {
-        0% {
-          transform: translate(-50%, -50%) skew(-60deg) scaleX(1);
-        }
-        100% {
-          transform: translate(-50%, -50%) skew(0) scaleX(0);
-        }
+      &__tag {
+        // opacity: 1;
+        // visibility: visible;
+        // transform: scaleX(1);
+        transform: skew(-60deg) scaleX(0);
+        -webkit-transform: skew(-60deg) scaleX(0);
+        opacity: 0;
+        // visibility: hidden;
+        // animation: loaderHide .2s .3s ease-in-out forwards;
+  
+        // transition: opacity .2s, visibility .2s, transform .2s;
+  
+        // @keyframes loaderHide {
+        //   0% {
+        //     opacity: 1;
+        //     visibility: visible;
+        //     transform: skew(-60deg) scaleX(1);
+        //   }
+        //   100% {
+        //     opacity: 0;
+        //     visibility: hidden;
+        //     transform: skew(0) scaleX(0);
+        //   }
+        // }
       }
     }
     .header__name {
-      opacity: 0;
-      animation: nameSize .2s .7s ease-in-out forwards;
-
-      @keyframes nameSize {
-        0% {
-          opacity: 0;
-          transform: scaleX(0);
-        }
-        100% {
-          opacity: 1;
-          transform: scaleX(1);
-        }
-      }
+      opacity: 1;
+      transform: scaleX(1);
+      -webkit-transform: scaleX(1);
     }
     .mainvisual__title {
-      opacity: 0;
-      animation: titleSize .3s .9s ease-in-out forwards;
-
-      @keyframes titleSize {
-        0% {
-          opacity: 0;
-          transform: scaleX(0);
-        }
-        100% {
-          opacity: 1;
-          transform: scaleX(1);
-        }
-      }
+      opacity: 1;
+      transform: scaleX(1);
+      -webkit-transform: scaleX(1);
     }
   }
 }
