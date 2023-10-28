@@ -11,6 +11,19 @@ window.onload = function() {
   }, 600);
 }
 
+//parallax
+const parallax = (target, speed) => {
+  const layers = document.querySelectorAll('.js-layer');
+  layers.forEach( layer => {
+    target.addEventListener('mousemove', (event) => {
+      const x = (window.innerWidth - event.pageX * speed) / 100;
+      const y = (window.innerWidth - event.pageY * speed) / 100;
+      layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+  })
+}
+parallax(document.querySelector('.mainvisual'),  7);
+
 //scroll animation
 gsap.registerPlugin(ScrollTrigger);
 gsap.set('.intro__textinner', {
@@ -170,10 +183,9 @@ anchorElems.forEach(anchorElem => {
   });
 });
 
-//anchor animation
+//anchor hover animation
 document.querySelectorAll('.anchor__link').forEach(function (anchor) {
   anchor.addEventListener('mouseenter', function(elem)  {
-    console.log(elem);
     const x = elem.clientX - this.getBoundingClientRect().left;
     const y = elem.clientY - this.getBoundingClientRect().top;
     const bg = this.querySelector('.anchor__bg');
@@ -181,10 +193,27 @@ document.querySelectorAll('.anchor__link').forEach(function (anchor) {
     bg.style.top = y + 'px';
   });
   anchor.addEventListener('mouseout', function(elem)  {
-    console.log(elem);
     const x = elem.clientX - this.getBoundingClientRect().left;
     const y = elem.clientY - this.getBoundingClientRect().top;
     const bg = this.querySelector('.anchor__bg');
+    bg.style.left = x + 'px';
+    bg.style.top = y + 'px';
+  });
+});
+
+//works hover animation
+document.querySelectorAll('.card').forEach(function (card) {
+  card.addEventListener('mouseenter', function(elem)  {
+    const x = elem.clientX - this.getBoundingClientRect().left;
+    const y = elem.clientY - this.getBoundingClientRect().top;
+    const bg = this.querySelector('.card__bg');
+    bg.style.left = x + 'px';
+    bg.style.top = y + 'px';
+  });
+  card.addEventListener('mouseout', function(elem)  {
+    const x = elem.clientX - this.getBoundingClientRect().left;
+    const y = elem.clientY - this.getBoundingClientRect().top;
+    const bg = this.querySelector('.card__bg');
     bg.style.left = x + 'px';
     bg.style.top = y + 'px';
   });
@@ -203,16 +232,25 @@ hoverTargets.forEach( target => {
   });
 })
 
-//parallax
-const parallax = (target, speed) => {
-  const layers = document.querySelectorAll('.js-layer');
-  layers.forEach( layer => {
-    target.addEventListener('mousemove', (event) => {
-      const x = (window.innerWidth - event.pageX * speed) / 100;
-      const y = (window.innerWidth - event.pageY * speed) / 100;
-      layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    });
-  })
+//page top button animation
+const pagetop = document.querySelector('.page-top');
+const sectionSkill = document.querySelector('.skills');
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.2,
 }
-parallax(document.querySelector('.mainvisual'),  7);
-
+const observer = new IntersectionObserver(pagetopShow, options);
+observer.observe(sectionSkill);
+function pagetopShow(entries) {
+  entries.forEach((entry) => {
+    if(entry.isIntersecting) { 
+      pagetop.classList.add('is-show');
+    }
+  });
+}
+window.addEventListener('scroll', () => {
+  if (window.scrollY === 0) {
+    pagetop.classList.remove('is-show');
+  }
+});

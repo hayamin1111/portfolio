@@ -8,7 +8,7 @@ $color-base: #f1f1f1;
 $color-main: #222222;
 $color-sub: #666666;
 $color-alpha: rgba(0, 0, 0, .1);
-$color-sub02: #ebebeb;
+$color-sub02: #dcdcdc;
 $color-white: #ffffff;
 $color-accent: #DB6B2C;
 
@@ -56,11 +56,11 @@ img {
     margin-bottom: 1rem;
     min-height: 0vw;
     font-size: clamp(3.2rem, calc(80 / 1366 * 100vw), 8rem);
+    color: $color-sub;
     line-height: 1;
     transition: opacity .3s, transform .3s;
     transition-delay: .7s;
   }
-
 }
 
 //mainvisual 
@@ -190,16 +190,17 @@ img {
 .main {
   &::after {
     display: block;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: $color-sub02;
     text-align: right;
     font-size: clamp(5rem, calc(120 / 1366 * 100vw), 12rem);
     font-family: 'Oswald', sans-serif;
     line-height: 1;
     content: "< /PORTFOLIO >";
     @include sp {
-      margin-left: 1rem;
-      margin-right: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }
@@ -297,7 +298,7 @@ img {
     position: relative;
     width: calc(100% / 3 - 4rem);
     @include sp {
-      width: calc(100% / 3 - 1rem);
+      width: calc(100% / 3 - .5rem);
     }
   }
 
@@ -317,12 +318,16 @@ img {
 
     @include hover {
       color: $color-white;
-      border: .2rem solid $color-accent;
+      border: .2rem solid $color-main;
 
       .anchor__bg {
         width: 250%;
         height: 250%;
       }
+    }
+
+    @include sp {
+      padding: 1rem;
     }
   }
 
@@ -333,10 +338,9 @@ img {
     height: 0;
     transform: translate(-50%, -50%);
     border-radius: 5rem;
-    background-color: $color-accent;
+    background-color: $color-main;
     transition: width .3s, height .3s;
     z-index: -1;
-    
   }
 }
 
@@ -400,6 +404,25 @@ img {
         height: .8rem;
       }
     }
+  }
+}
+
+//heading-section
+.heading-section {
+  display: flex;
+  align-items: center;
+  font-size: clamp(2.4rem, calc(48 / 1366 * 100vw), 4.8rem);
+  font-family: 'Oswald', sans-serif;
+  color: $color-sub;
+
+  &::before {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    border-radius: 5rem;
+    border: .5rem solid $color-sub;
+    content: "";
   }
 }
 
@@ -492,12 +515,19 @@ img {
     content: "< /WORKS >";
   }
 
-  &__text {
+  &__lead {
     margin-bottom: 4rem;
     font-weight: 700;
     @include sp {
       margin-bottom: 2rem;
     }
+  }
+
+  &__text {
+    margin-bottom: 1rem;
+    padding-left: 3rem;
+    color: $color-sub;
+    font-size: clamp(1.2rem, calc(16 / 1366 * 100vw), 1.6rem);
   }
 
   &__subsection {
@@ -590,17 +620,14 @@ img {
       opacity: .8;
       filter: blur(1rem);
       z-index: -1;
-      animation: fade 5s infinite both;
+      animation: fade 3s infinite alternate backwards;
   
       @keyframes fade {
         0% {
           opacity: 1;
         }
-        50% {
-          opacity: .8;
-        }
         100% {
-          opacity: 1;
+          opacity: .6;
         }
       }
     }
@@ -681,6 +708,7 @@ img {
 
 //profile
 .profile {
+   background-color: $color-sub02;
   &::after {
     display: block;
     margin-top: 2rem;
@@ -740,12 +768,11 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 3rem;
-  margin: 0 1rem;
+  margin: 2rem 1rem 0;
   @media (max-width: 768px) {
     gap: 2rem;
   }
 }
-
 .card {
   position: relative;
   display: grid;
@@ -756,44 +783,43 @@ img {
   border-radius: .5rem;
   box-shadow: .1rem .1rem 1rem $color-alpha;
   overflow: hidden;
+  transition: box-shadow .3s;
+  @include hover {
+    box-shadow: none;
+
+    .card__bg {
+      width: 250%;
+      height: 250%;
+    }
+  }
   @include sp {
     gap: 1rem;
   }
-
-  @media(hover: hover) {
-    &:hover::after {
-      position: absolute;
-      top: -100%;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(100deg,  rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, .6) 70%, rgba(255, 255, 255, 0) 0%);
-      animation: shiny .7s ease-in-out 1 none;
-      content: '';
-    }
-  }
-  @keyframes shiny {
-    0% {
-        transform: scale(1) rotate(25deg);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(30) rotate(25deg);
-        opacity: 0;
-    }
-  }
+  
   &__title {
     font-weight: 700;
   }
 
   &__text {
     font-size: clamp(1.2rem, calc(14 / 1366 * 100vw), 1.4rem);
+    color: $color-sub;
   }
   &__image {
     order: -1;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+  }
+  &__bg {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 5rem;
+    background-color: $color-sub02;
+    transition: width .3s, height .3s;
+    z-index: -1;
   }
 }
 
@@ -859,6 +885,7 @@ img {
 
 //copyright
 .copyright {
+  background-color: $color-sub02;
   text-align: right;
   padding: 1rem 4rem;
   font-family: 'Oswald', sans-serif;
@@ -866,6 +893,112 @@ img {
     padding: 1rem 2rem;
   }
 }
+
+//page top
+.page-top {
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2.5rem;
+	z-index: 1;
+	opacity: 0;
+	visibility: hidden; 
+	transition: opacity .4s, visibility .4s;
+
+  &.is-show {
+    opacity: 1;
+    visibility: visible; 
+  }
+
+  @include hover {
+    .page-top__inner{
+      &::after {
+        transform: translate(calc(-50% + 2rem), calc(-50% - 2rem));
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      span::before {
+        transform: translate(calc(-50% - 2rem), calc(-50% - 2rem));
+        width: .8rem;
+        height: .8rem;
+      }
+      span::after {
+        transform: translate(calc(-50% - 2rem), calc(-50% + 2rem));
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+
+  &__inner {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: $color-main;
+    border-radius: 5rem;
+    border: .2rem solid $color-main;
+    filter: url(#goo);
+
+  &::before {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-left: 0.1rem solid $color-white;
+    border-top: 0.1rem solid $color-white;
+    z-index: 10;
+    content: "";
+  }
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4rem;
+      height: 4rem;
+      transform: translate(-50%, -50%);
+      background-color: $color-main;
+      border-radius: 5rem;
+      transition: .6s cubic-bezier(0, 2, .61, -0.05);
+      z-index: -1;
+      content: "";
+    }
+    span::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4rem;
+      height: 4rem;
+      transform: translate(-50%, -50%);
+      background-color: $color-main;
+      border-radius: 5rem;
+      transition: .8s cubic-bezier(0, 2, .61, -0.05);
+      z-index: -1;
+      content: "";
+    }
+    span::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4rem;
+      height: 4rem;
+      transform: translate(-50%, -50%);
+      background-color: $color-main;
+      border-radius: 5rem;
+      transition: 1s cubic-bezier(0, 2, .61, -0.05);
+      z-index: -1;
+      content: "";
+    }
+  }
+}
+
 
 
 //loading animation

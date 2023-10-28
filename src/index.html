@@ -127,9 +127,10 @@
             <em class="heading__main">WORKS</em>
             <span class="heading__sub">制作実績</span>
           </h2>
-          <p class="works__text">個人制作の実績です。業務での実績は別途PDFをご覧ください。</p>
+          <p class="works__lead">個人制作の実績です。業務での実績は別途PDFをご覧ください。</p>
           <div class="works__subsections">
-            <div class="works__subsection">
+            <h3 class="heading-section">Website</h3>
+            <section class="works__subsection">
               <div class="works__wrapper">
                 <div class="works__inner">
                   <a class="works__link" href="https://e-hykw.com/daydream/" target="_blank" data-type="daydream">
@@ -230,8 +231,10 @@
                   </figure>
                 </div>
               </div>
-            </div>
-            <div class="works__subsection">
+            </section>
+            <section class="works__subsection">
+              <h3 class="heading-section">Codepen</h3>
+              <p class="works__text">練習として制作したものです。Codepenのページにリンクします。</p>
               <div class="cards">
                 <a href="https://codepen.io/hayamine01/pen/MWPzRPa" target="_blank" class="card">
                   <p class="card__title">ウェーブするパネル</p>
@@ -240,6 +243,7 @@
                   srcset="./img/img-codepen_panel-s.webp 768w,
                   ./img/img-codepen_panel.webp 1200w"
                   alt="ウェーブするパネルのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/xxmwPZv" target="_blank" class="card">
                   <p class="card__title">追加・削除できるボックス</p>
@@ -248,6 +252,7 @@
                   srcset="./img/img-codepen_boxes-s.webp 768w,
                   ./img/img-codepen_boxes.webp 1200w"
                   alt="キラキラ光るボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/vYVQVZM" target="_blank" class="card">
                   <p class="card__title">動くボックス</p>
@@ -256,6 +261,7 @@
                   srcset="./img/img-codepen_square-s.webp 768w,
                   ./img/img-codepen_square.webp 1200w"
                   alt="水平移動するボックスのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/JjwPEbO" target="_blank" class="card">
                   <p class="card__title">回転する球</p>
@@ -264,6 +270,7 @@
                   srcset="./img/img-codepen_rotate_ball-s.webp 768w,
                   ./img/img-codepen_rotate_ball.webp 1200w"
                   alt="回転する球のサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/KKrXMXV" target="_blank" class="card">
                   <p class="card__title">うねうねする円</p>
@@ -272,6 +279,7 @@
                   srcset="./img/img-codepen_uneune-s.webp 768w,
                   ./img/img-codepen_uneune.webp 1200w"
                   alt="うねうね動く円のサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/LYWPMmL" target="_blank" class="card">
                   <p class="card__title">パーティクル</p>
@@ -280,6 +288,7 @@
                   srcset="./img/img-codepen_particle-s.webp 768w,
                   ./img/img-codepen_particle.webp 1200w"
                   alt="パーティクルサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/jOqJGYB" target="_blank" class="card">
                   <p class="card__title">四方に当たると色の変わる球</p>
@@ -288,6 +297,7 @@
                   srcset="./img/img-codepen_balls-s.webp 768w,
                   ./img/img-codepen_balls.webp 1200w"
                   alt="四方に当たると色の変わる球サムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
                 <a href="https://codepen.io/hayamine01/pen/ZEzXMjy" target="_blank" class="card">
                   <p class="card__title">CSSアニメーション</p>
@@ -296,10 +306,11 @@
                   srcset="./img/img-codepen_css-s.webp 768w,
                   ./img/img-codepen_css.webp 1200w"
                   alt="CSSアニメーションのサムネイル" class="card__image" decoding="async" width="320" height="180">
+                  <span class="card__bg"></span>
                 </a>
               </div>
               <!-- cards -->
-            </div>
+            </section>
           </div>
           <!-- works__subsections -->
         </div>
@@ -346,6 +357,22 @@
     <footer class="footer">
       <p class="copyright"><small>&copy;Hayakawa</small></p>
     </footer>
+    <div class="page-top">
+      <a class="page-top__inner" href="#"><span></span></a>
+    </div> 
+    <svg style="display: none;">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="name" />
+          <feColorMatrix in="name" mode="matrix" 
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0 
+                    0 0 0 30 -15" result="aab" />
+          <feBlend in="SourceGraphic" in2="aab" />
+        </filter>
+      </defs>
+    </svg>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="./js/main.min.js" defer></script>
