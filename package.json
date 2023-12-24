@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp browserSyncTask"
+    "start": "gulp browserSyncTask",
+    "dev": "gulp serve"
   },
   "repository": {
     "type": "git",
